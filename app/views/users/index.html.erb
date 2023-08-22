@@ -1,0 +1,6 @@
+<h1>Hello! List of users</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.name %></li>
+    <li><%= user.bio %></li>
+  <% end %>
