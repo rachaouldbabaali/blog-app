@@ -7,8 +7,5 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-    @user = User.find(params[:id])
-    @posts = @user.posts
-  end
+  def show; end
 end

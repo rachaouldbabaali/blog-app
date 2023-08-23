@@ -5,10 +5,10 @@ RSpec.describe Like, type: :model do
   let(:post) do
     Post.new(author: user, title: 'Nature', text: 'This is exciting!', likes_counter: 0, comments_counter: 0)
   end
-  subject { Like.new(post:, author: user) }
+  subject { Comment.new(text: 'This is my comment', user:, post:) }
   before { subject.save }
 
   it 'method update_likes_counter increments likes_counter by 1' do
-    expect { subject.send(:likes_update) }.to change { post.reload.likes_counter }.by(1)
+    expect { subject.send(:comments_update) }.to change { post.reload.comments_counter }.by(1)
   end
 end

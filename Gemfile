@@ -65,6 +65,14 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0' # For RSpec testing framework
+  # gem 'factory_bot_rails', '~> 7.0'  # For creating test data with FactoryBot
+  gem 'shoulda-matchers', '~> 5.0' # For writing concise and readable test assertions
+  # Add any other testing gems you may need
 end
