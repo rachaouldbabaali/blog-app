@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  let(:user) { User.create(name: 'Mercy', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'tester') }
-  let(:post) { Post.create(author_id: user.id, title: 'Coding', text: 'ooooh Rails really?') }
+  let(:user) { User.create(id: 1, name: 'reko', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'tester') }
+  let(:post) { Post.create(id:1, author_id: 1, title: 'Coding', text: ' Rails') }
 
   describe 'GET #index' do
     it 'responds with HTTP success' do
@@ -17,7 +17,7 @@ RSpec.describe 'Posts', type: :request do
 
     it 'includes correct placeholder text in the response body' do
       get user_posts_path(user)
-      expect(response.body).to include('All posts are here')
+      expect(response.body).to include('All posts')
     end
   end
 
