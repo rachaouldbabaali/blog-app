@@ -1,7 +1,7 @@
 <div class="recent-posts">
   <p><%= @post.text %></p>
   <p class="counters">
-    comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %>
+    Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes.count %>
   </p>
 
   <% if @post.display_comments.any? %>
