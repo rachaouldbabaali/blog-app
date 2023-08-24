@@ -1,6 +1,16 @@
-<h1>Hello! List of users</h1>
-<ul>
-  <% @users.each do |user| %>
-    <li><%= user.name %></li>
-    <li><%= user.bio %></li>
+<% @users.each do |user| %>
+<%= link_to user_path(user) do %>
+  <div class="user">
+    <div class="photo"><% if user.photo.present? %>
+      <%= image_tag user.photo, size: "100x100" %>
+    <% else %>
+      <%= image_tag "default-avatar.jpg", size: "100x100" %>
+    <% end %>
+    </div>
+    <div class="user-details">
+    <h3><%= user.name %></h3>
+    <p class="user-posts">Number of Posts: <%= user.posts.count %></p>
+    </div>
+  </div>
   <% end %>
+<% end %>
