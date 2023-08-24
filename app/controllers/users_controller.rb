@@ -7,5 +7,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+    @most_recent_posts = @user.most_recent_posts
+    @user_posts = @user.posts
+  end
 end
