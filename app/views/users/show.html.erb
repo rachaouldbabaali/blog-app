@@ -17,11 +17,7 @@
       comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %>
     </p>
   </div>
-  <% end %>
-  <button id="show-more-btn">
-    <%= link_to 'Show More', user_posts_path(@user) %>
-  </button>
-  <% else %>
+  <% end %> <% else %>
   <p>No recent posts.</p>
   <% end %>
 </div>
