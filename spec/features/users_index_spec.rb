@@ -12,6 +12,12 @@ RSpec.describe 'User Index', type: :feature do
     expect(page).to have_content('Jane Smith')
   end
 
+  scenario 'renders the user show page' do
+    visit '/'
+    click_link(@user.name, match: :first)
+    expect(page).to have_content(@user.name)
+  end
+
   scenario 'displays all users profile photo' do
     visit '/'
     expect(page).to have_css(
@@ -24,9 +30,4 @@ RSpec.describe 'User Index', type: :feature do
     )
   end
 
-  scenario 'renders the user show page' do
-    visit '/'
-    click_link(@user.name, match: :first)
-    expect(page).to have_content(@user.name)
-  end
 end
