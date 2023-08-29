@@ -8,7 +8,7 @@ RSpec.describe Post, type: :feature do
     Post.new(author_id: user.id, title: 'Post 2', text: 'Text for Post 2', comments_counter: 2, likes_counter: 2)
   end
   before { subject.save }
-  
+
   describe 'Post show page' do
     it "I can see a post's title." do
       visit user_post_path(user.id, subject.id)

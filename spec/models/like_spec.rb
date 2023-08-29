@@ -3,7 +3,7 @@ RSpec.describe Like, type: :model do
   let(:post) do
     Post.create(author: user, title: 'Nature', text: 'This is exciting!', likes_counter: 0, comments_counter: 0)
   end
-  subject { Like.new(post: post, user: user) }
+  subject { Like.new(post:, user:) }
 
   before do
     post.save # Save the post object explicitly
