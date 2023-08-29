@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user) { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'New user', posts_counter: 1) }
+  let(:user) { User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'New user', posts_counter: 1) }
   subject do
     Post.new(author: user, title: 'Nature', text: 'This is exciting!', likes_counter: 0, comments_counter: 0)
   end
@@ -29,7 +29,7 @@ RSpec.describe Post, type: :model do
     expect(subject.display_comments).to eq(subject.comments.order(updated_at: :desc).limit(5))
   end
 
-  it 'increments the author\'s posts_counter after save' do
+  it "increments the author's posts_counter after save" do
     expect { subject.save }.to change { user.reload.posts_counter }.by(1)
   end
 end

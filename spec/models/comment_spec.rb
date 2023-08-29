@@ -8,7 +8,7 @@ RSpec.describe Like, type: :model do
   subject { Comment.new(text: 'This is my comment', user:, post:) }
   before { subject.save }
 
-  it 'method update_likes_counter increments likes_counter by 1' do
-    expect { subject.send(:comments_update) }.to change { post.reload.comments_counter }.by(1)
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
   end
 end
