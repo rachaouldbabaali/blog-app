@@ -29,5 +29,4 @@ RSpec.describe 'User Index', type: :feature do
       "img[src='#{@user2.photo}']", wait: 30
     )
   end
-
 end
