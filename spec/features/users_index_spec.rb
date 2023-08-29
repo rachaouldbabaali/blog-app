@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'User Index', type: :feature do
-
   before :each do
-    @user= User.create(id: 1, name: 'Tom', posts_counter: 3, photo: 'https://pic.com', bio: 'Project manager')
-    @user2= User.create(id: 2, name: 'Jane Smith', posts_counter: 0, photo: 'https://pic.com', bio: 'IT manager')
+    @user = User.create(id: 1, name: 'Tom', posts_counter: 3, photo: 'https://pic.com', bio: 'Project manager')
+    @user2 = User.create(id: 2, name: 'Jane Smith', posts_counter: 0, photo: 'https://pic.com', bio: 'IT manager')
   end
 
   scenario 'User can see all users' do
@@ -30,5 +29,4 @@ RSpec.describe 'User Index', type: :feature do
     click_link(@user.name, match: :first)
     expect(page).to have_content(@user.name)
   end
-
 end
