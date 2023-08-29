@@ -2,11 +2,11 @@ require 'will_paginate/array'
 
 class PostsController < ApplicationController
   before_action :set_user, only: %i[index show new create]
-  # GET /posts or posts.json
+
   def index
     @user = User.find(params[:user_id])
-    @all_posts = @user.posts.includes(:user, comments: :user)
-    @posts = @user.posts.paginate(page: params[:page], per_page: 10)
+    @posts = @user.posts.includes(:user, comments: :user).order(created_at: :desc).paginate(page: params[:page],
+                                                                                            per_page: 5)
   end
 
   def show

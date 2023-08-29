@@ -21,6 +21,7 @@
         <p><%= post.text %></p>
         <p class="counters">comments: <%= post.comments_counter %>, <span>Likes: <%= post.likes_counter %></span></p>
         <% if post.display_comments.any? %>
+        
           <h3 class="comments-heading">Comments:</h3>
           <ul class="comments-list">
             <% post.display_comments.each do |comment| %>

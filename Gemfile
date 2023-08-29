@@ -1,13 +1,10 @@
 source 'https://rubygems.org'
-
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-gem 'rubocop', '>= 1.0', '< 2.0'
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.0.6'
+gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -30,6 +27,7 @@ gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
+gem 'will_paginate', '~> 3.1.0'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -47,9 +45,16 @@ gem 'bootsnap', require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
-gem 'will_paginate' # For pagination
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+
+group :development, :test do
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -65,14 +70,6 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-end
-
-group :development, :test do
-  gem 'rspec-rails', '~> 5.0' # For RSpec testing framework
-  # gem 'factory_bot_rails', '~> 7.0'  # For creating test data with FactoryBot
-  gem 'shoulda-matchers', '~> 5.0' # For writing concise and readable test assertions
-  # Add any other testing gems you may need
 end
