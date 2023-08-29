@@ -1,7 +1,9 @@
 <div class="user">
   <div class="photo">
-    <% if @user.photo.present? %> <%= image_tag @user.photo, size: "100x100" %>
-    <% else %> <%= image_tag "default-avatar.jpg", size: "100x100" %> <% end %>
+    <% if @user.photo.present? %>
+      <%= image_tag @user.photo, size: "100x100" %>
+    <% else %>
+      <%= image_tag "https://unsplash.com/photos/F_-0BxGuVvo", size: "100x100" %> <% end %>
   </div>
   <div class="user-details">
     <h3><%= @user.name %></h3>
@@ -21,3 +23,16 @@
   <p>No recent posts.</p>
   <% end %>
 </div>
+
+
+<br>
+
+<button id="create-post-btn">
+  <%= link_to 'Create Post', new_user_post_path(@user) %>
+</button>
+
+<br> <br> <br>
+
+<button id="show-more-btn">
+  <%= link_to 'Show More', user_posts_path(@user) %>
+</button>
