@@ -13,12 +13,10 @@ class UsersController < ApplicationController
       @user_posts = @user.posts
       redirect_to users_path, alert: 'User not found' unless @user
     end
-
   end
 
   def sign_out_and_redirect
     sign_out current_user
     redirect_to new_user_session_path
   end
-
 end
