@@ -37,12 +37,12 @@
       <% end %>
 
       <div class="button-container">
-        <div class='like'>
-          <%= button_to 'Like Post', user_post_likes_path(@user, post), method: :post, class: "like" %>
+        <div class="like">
+          <%= button_to 'Like Post', user_post_likes_path(@user, post), method: :post %>
         </div>
   
         <div class="create-comment-btn">
-          <%= button_to 'Create Comment', new_user_post_comment_path(@user, post) %>
+          <%= link_to 'Create Comment', new_user_post_comment_path(@user, post) %>
         </div>
       </div>
     </div>
