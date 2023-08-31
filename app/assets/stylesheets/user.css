@@ -96,3 +96,17 @@ form {
 .signup-button {
   width: 100%;
 }
+
+.roll-back {
+  margin: auto;
+  color: black;
+  padding: 10px;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}

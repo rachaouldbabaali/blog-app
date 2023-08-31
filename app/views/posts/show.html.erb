@@ -5,11 +5,47 @@
   </p>
 
   <% if @post.display_comments.any? %>
-  <h3 class="comments-heading">Comments:</h3>
-  <ul class="comments-list">
-    <% @post.display_comments.each do |comment| %>
-    <li><%= comment.user.name %> : <%= comment.text %></li>
-    <% end %>
-  </ul>
+    <h3 class="comments-heading">Comments:</h3>
+    <ul class="comments-list">
+      <% @post.display_comments.each do |comment| %>
+        <li>
+          <span class="comment-author"><%= comment.author.name %>:</span> <%= comment.text %>
+          <% if comment.author == current_user %>
+            <button class="delete-comment-btn">
+              <%= link_to 'Delete', user_post_comment_path(@user, comment.post, comment.id), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %>
+            </button>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
+
+  <div class="button">
+    <% if can? :destroy, @post %>
+      <button class="delete-post-btn">
+        <%= link_to 'Delete post', user_post_path(@user, @post), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        } %>
+      </button>
+    <% end %>
+  </div>
+
+  <div class="button-container">
+    <div class="like">
+      <%= button_to 'Like Post', user_post_likes_path(@user, @post), method: :post, class: "like" %>
+    </div>
+
+    <div class="create-comment-btn">
+      <%= link_to 'Create Comment', new_user_post_comment_path(@user, @post) %>
+    </div>
+  </div>
+  
+</div>
+
+<div class="roll-back">
+  <%= link_to 'Back', user_posts_path(@user) %>
 </div>

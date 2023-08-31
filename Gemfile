@@ -28,6 +28,8 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'cancancan'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

@@ -88,11 +88,6 @@ rails db:migrate:status
 - GitHub: [@rachaouldbabaali](https://github.com/rachaouldbabaali)
 - LinkedIn: [rachaouldbabaali](https://www.linkedin.com/in/rachaouldbabaali)
 
-👤 **Foga Kater Amos**
-
-- GitHub: [@githubhandle](https://github.com/katfogy)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/foga-amos-2b5371103/)
-
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
