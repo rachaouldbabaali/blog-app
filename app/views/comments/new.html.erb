@@ -4,4 +4,10 @@
   local: true) do |form| %>
   <div class="field"><%= form.label :text %> <%= form.text_area :text %></div>
   <%= form.submit "Create Comment" %> <% end %>
+
+  <div class="back">
+    <%= link_to 'Back', user_post_path(@user, @post) %>
+  </div>
+
+
 </div>

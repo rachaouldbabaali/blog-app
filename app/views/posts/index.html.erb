@@ -25,20 +25,36 @@
           <h3 class="comments-heading">Comments:</h3>
           <ul class="comments-list">
             <% post.display_comments.each do |comment| %>
-              <li><%= comment.user.name %>: <%= comment.text %></li>
+              <li>
+                <%= comment.user.name %>: <%= comment.text %>
+                <% if comment.user == current_user %> <!-- Check if the comment belongs to the current user -->
+                  <%= button_to 'Delete', user_post_comment_path(@user, post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         <% end %>
       <% end %>
 
-      <div class='like'>
-        <%= button_to 'Like Post', user_post_like_path(post.user, post), method: :post, class: "like" %>
-      </div>
-
-      <div class="create-comment-btn">
-        <%= link_to 'Create Comment', new_user_post_comment_path(@user, post) %>
+      <div class="button-container">
+        <div class='like'>
+          <%= button_to 'Like Post', user_post_likes_path(@user, post), method: :post, class: "like" %>
+        </div>
+  
+        <div class="create-comment-btn">
+          <%= button_to 'Create Comment', new_user_post_comment_path(@user, post) %>
+        </div>
       </div>
     </div>
+  <% end %>
+</div>
+
+<div class="delete-post">
+  <!-- Display the delete post button here -->
+  <% if can? :destroy, @post %>
+    <button class="delete-post-btn">
+      <%= link_to 'Delete post', user_post_path(@user, @post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </button>
   <% end %>
 </div>
 

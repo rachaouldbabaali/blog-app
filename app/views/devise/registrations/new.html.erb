@@ -17,6 +17,11 @@
       "input-field" %>
     </div>
 
+    <div class="field">
+      <%= f.label :Role, class:'user_field' %><br />
+      <%= f.select :role, ['admin', 'author'], autofocus: true, class:'user_select' %>
+    </div>
+
     <div class="field password-field">
       <%= f.label :password %> <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
