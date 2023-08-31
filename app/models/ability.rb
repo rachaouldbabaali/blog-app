@@ -17,7 +17,6 @@ class Ability
 
     can :manage, :all
 
-
     #   return unless user.admin?
     #   can :manage, :all
     #
