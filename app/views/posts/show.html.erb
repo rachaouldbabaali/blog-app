@@ -36,7 +36,7 @@
 
   <div class="button-container">
     <div class="like">
-      <%= link_to 'Like Post', user_post_likes_path(@user, @post), method: :post, class: "like" %>
+      <%= button_to 'Like Post', user_post_likes_path(@user, @post), method: :post, class: "like" %>
     </div>
 
     <div class="create-comment-btn">
