@@ -7,13 +7,14 @@ class Ability
     return unless user.present?
 
     can :read, :all
-    can :create, [Comment, Post]
+    can :manage, User, id: user.id
+    can :manage, Post, author_id: user.id
+    can :create, Comment
+    can :destroy, Comment, author_id: user.id
+    can :create, Like
 
     if user.role == 'admin'
       can :manage, :all
-    else
-      can :destroy, Comment, author: user
-      can :destroy, Post, author: user
     end
 
     #   return unless user.admin?
