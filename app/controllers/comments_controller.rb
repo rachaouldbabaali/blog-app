@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
 
     @comment = @post.comments.new(comment_params)
-    @comment.author_id = @user.id  # Update this line
+    @comment.author_id = @user.id # Update this line
 
     if @comment.save
       redirect_to request.referrer

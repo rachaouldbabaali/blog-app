@@ -13,9 +13,10 @@ class Ability
     can :destroy, Comment, author_id: user.id
     can :create, Like
 
-    if user.role == 'admin'
-      can :manage, :all
-    end
+    return unless user.role == 'admin'
+
+    can :manage, :all
+
 
     #   return unless user.admin?
     #   can :manage, :all

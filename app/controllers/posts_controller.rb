@@ -54,9 +54,9 @@ class PostsController < ApplicationController
 
   def authorize_user
     @post = Post.find(params[:id])
-    unless @post.user == current_user
-      flash[:alert] = "You are not authorized to perform this action."
-      redirect_to root_path
-    end
+    return if @post.user == current_user
+
+    flash[:alert] = 'You are not authorized to perform this action.'
+    redirect_to root_path
   end
 end
