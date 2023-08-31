@@ -45,16 +45,16 @@
           <%= link_to 'Create Comment', new_user_post_comment_path(@user, post) %>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
 
-<div class="delete-post">
-  <!-- Display the delete post button here -->
-  <% if can? :destroy, @post %>
-    <button class="delete-post-btn">
-      <%= link_to 'Delete post', user_post_path(@user, @post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-    </button>
+      <div class="delete-post">
+        <!-- Display the delete post button here -->
+        <% if can? :destroy, post %>
+          <button class="delete-post-btn">
+            <%= link_to 'Delete post', user_post_path(@user, post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </button>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
 
