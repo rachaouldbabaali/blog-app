@@ -10,7 +10,7 @@ class Api::V1::CommentsController < ApplicationController
       render json: { status: 'Success', message: 'Comment fetched successfully', data: @comments }, status: :ok
     else
       render json: { status: 'Error', message: 'No comments found!', data: @comments.errors },
-              status: :bad_request
+             status: :bad_request
     end
   end
 
@@ -25,7 +25,7 @@ class Api::V1::CommentsController < ApplicationController
       render json: { status: 'Success', message: 'Comment Created', data: @comments }, status: :ok
     else
       render json: { status: 'Not Found', message: 'Details not found', data: @comments.errors },
-              status: :unprocessable_entity
+             status: :unprocessable_entity
     end
   end
 
