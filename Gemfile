@@ -30,6 +30,11 @@ gem 'jbuilder'
 gem 'will_paginate', '~> 3.1.0'
 
 gem 'cancancan'
+
+gem 'rswag'
+
+gem 'rswag-api'
+gem 'rswag-ui'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -56,6 +61,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
